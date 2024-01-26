@@ -1,6 +1,44 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./styles.css";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './styles.css';
+
+const skills = [
+  {
+    skill: 'HTML',
+    level: 'advanced',
+    color: 'orangered',
+  },
+  {
+    skill: 'CSS',
+    level: 'advanced',
+    color: 'skyblue',
+  },
+  {
+    skill: 'JavaScript',
+    level: 'intermediate',
+    color: 'gold',
+  },
+  {
+    skill: 'React',
+    level: 'intermediate',
+    color: 'violet',
+  },
+  {
+    skill: 'solidity',
+    level: 'beginner',
+    color: '#323232',
+  },
+  {
+    skill: 'Web Dev',
+    level: 'intermediate',
+    color: 'lightgreen',
+  },
+  {
+    skill: 'Game Dev',
+    level: 'beginner',
+    color: 'grey'
+  }
+];
 
 function App() {
   return (
@@ -36,33 +74,40 @@ const Intro = () => {
 const SkillList = () => {
   return (
     <div className="skill-list">
-      <Skill skill="HTML" color="orangered" />
-      <Skill skill="CSS" color="skyblue" />
-      <Skill skill="JavaScript" color="gold" />
-      <Skill skill="React" color="violet" />
-      <Skill skill="Solidity" color="#323232" />
+      {skills.map((s) => (
+        <Skill skillObj={s} key={s.skill} />
+      ))}
     </div>
   );
 };
 
-const Skill = (props) => {
+const Skill = ({ skillObj }) => {
   return (
     <div
       className="skill"
       style={{
-        backgroundColor: props.color,
-        color: "ghostwhite",
-        textShadow: "0 0 4px #000000",
-        fontWeight: "bold",
-        letterSpacing: "1px",
+        backgroundColor: skillObj.color,
+        color: 'ghostwhite',
+        textShadow: '0 0 4px #000000',
+        fontWeight: 'bold',
+        letterSpacing: '1px',
       }}
     >
-      <span>{props.skill}</span>
+      <span>{skillObj.skill}</span>
+      <span>
+        {skillObj.level === 'advanced'
+          ? '💪🏻'
+          : skillObj.level === 'intermediate'
+          ? '👍🏻'
+          : skillObj.level === 'beginner'
+          ? '👶🏻'
+          : ''}
+      </span>
     </div>
   );
 };
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
