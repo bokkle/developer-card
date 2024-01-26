@@ -35,38 +35,30 @@ const Intro = () => {
 
 const SkillList = () => {
   return (
-    <ul className="skill-list">
-      <li
-        className="skill"
-        style={{ color: 'ghostwhite', textShadow: '0 0 4px #000000', backgroundColor: "orange", fontWeight: "bold" }}
-      >
-        HTML
-      </li>
-      <li
-        className="skill"
-        style={{ color: 'ghostwhite', textShadow: '0 0 4px #000000', backgroundColor: "lightblue", fontWeight: "bold" }}
-      >
-        CSS
-      </li>
-      <li
-        className="skill"
-        style={{ color: 'ghostwhite', textShadow: '0 0 4px #000000', backgroundColor: "orangered", fontWeight: "bold" }}
-      >
-        JavaScript
-      </li>
-      <li
-        className="skill"
-        style={{ color: 'ghostwhite', textShadow: '0 0 4px #000000', backgroundColor: "violet", fontWeight: "bold" }}
-      >
-        React
-      </li>
-      <li
-        className="skill"
-        style={{ color: 'ghostwhite', textShadow: '0 0 4px #000000', backgroundColor: "darkgray", fontWeight: "bold" }}
-      >
-        Solidity
-      </li>
-    </ul>
+    <div className="skill-list">
+      <Skill skill="HTML" color="orangered" />
+      <Skill skill="CSS" color="skyblue" />
+      <Skill skill="JavaScript" color="gold" />
+      <Skill skill="React" color="violet" />
+      <Skill skill="Solidity" color="#323232" />
+    </div>
+  );
+};
+
+const Skill = (props) => {
+  return (
+    <div
+      className="skill"
+      style={{
+        backgroundColor: props.color,
+        color: "ghostwhite",
+        textShadow: "0 0 4px #000000",
+        fontWeight: "bold",
+        letterSpacing: "1px",
+      }}
+    >
+      <span>{props.skill}</span>
+    </div>
   );
 };
 
